@@ -27,9 +27,13 @@ function App() {
           type={"text"}
           className="searchBox"
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              searchStart();
+            }
+          }}
         />
         <button onClick={searchStart} className="btn">
-          {" "}
           Search for this location
         </button>
       </div>
