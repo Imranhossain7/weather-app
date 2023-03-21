@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./style/App.css";
 const api = {
   key: "369ee2cc7778dd61d3982ba2b1e094e2",
   base: "https://api.openweathermap.org/data/2.5/",
@@ -18,11 +19,21 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Weather App</h2>
+      <h2 className="title">Weather App</h2>
 
       {/* Search */}
-      <input type={"text"} onChange={(e) => setSearch(e.target.value)} />
-      <button onClick={searchStart}> Search for this location</button>
+      <div className="searchArea">
+        <input
+          type={"text"}
+          className="searchBox"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button onClick={searchStart} className="btn">
+          {" "}
+          Search for this location
+        </button>
+      </div>
+
       {typeof weather.main !== "undefined" ? (
         <div>
           {/* Location  */}
